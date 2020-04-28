@@ -205,6 +205,10 @@
         "mod": "mod2",
         "key": "z"
     },
+    "focus-run-text-field": {
+        "mod": "mod1",
+        "key": "r"
+    },
     "floating": [],
     "floating-is-blacklist": true,
     "float-small-windows": true,

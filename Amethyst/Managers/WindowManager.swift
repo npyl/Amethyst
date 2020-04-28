@@ -74,6 +74,11 @@ final class WindowManager<Application: ApplicationType>: NSObject, Codable {
         screens.updateScreens(windowManager: self)
     }
 
+    func focusRunTextField() {
+        NSLog("MADE IT!")
+        // TODO: use spotlight on the background for search & suggestions
+    }
+
     deinit {
         NSWorkspace.shared.notificationCenter.removeObserver(self)
         NotificationCenter.default.removeObserver(self)

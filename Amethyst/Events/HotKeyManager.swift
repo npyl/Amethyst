@@ -210,6 +210,10 @@ class HotKeyManager<Application: ApplicationType>: NSObject {
             appDelegate?.relaunch(self)
         }
 
+        constructCommandWithCommandKey(CommandKey.focusOnRunTextField.rawValue) {
+            windowManager.focusRunTextField()
+        }
+
         LayoutType<Application.Window>.availableLayoutStrings().forEach { (layoutKey, _) in
             self.constructCommandWithCommandKey(UserConfiguration.constructLayoutKeyString(layoutKey)) {
                 let screenManager: ScreenManager<WindowManager<Application>>? = windowManager.focusedScreenManager()
@@ -370,6 +374,7 @@ class HotKeyManager<Application: ApplicationType>: NSObject {
         }
 
         hotKeyNameToDefaultsKey.append(["Relaunch Amethyst", CommandKey.relaunchAmethyst.rawValue])
+        hotKeyNameToDefaultsKey.append(["Focus on Run Textfield", CommandKey.focusOnRunTextField.rawValue])
 
         return hotKeyNameToDefaultsKey
     }
