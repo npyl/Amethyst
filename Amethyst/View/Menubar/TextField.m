@@ -22,8 +22,9 @@
         [self setFrame:text_field_frame];
         
         [self setStringValue:@"HELLO!"];
-        
-        [[self window] setContentViewController:[[NSViewController alloc] init]];
+
+        [self setFocusRingType:NSFocusRingTypeNone];
+//        [[self window] setContentViewController:[[NSViewController alloc] init]];
     }
     return self;
 }
