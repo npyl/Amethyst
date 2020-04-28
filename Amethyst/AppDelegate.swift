@@ -31,6 +31,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var isFirstLaunch = true
 
+    func createMenubarForScreen( screen: NSScreen ) {
+        DispatchQueue.main.async {
+
+            // create new menubar
+            let menubar = Menubar.forScreen(screen)
+
+            // create menubar controller
+            let windowController = MenubarController.forMenubar(menubar)
+
+            // make it show up
+            windowController?.showWindow(nil)
+        }
+    }
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         #if DEBUG
             log.addDestination(ConsoleDestination())
@@ -65,6 +79,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         hotKeyManager = HotKeyManager(userConfiguration: UserConfiguration.shared)
 
         hotKeyManager?.setUpWithWindowManager(windowManager!, configuration: UserConfiguration.shared, appDelegate: self)
+
+        // -----CREATE MENUBAR------
+
+        for screen in NSScreen.screens {
+            self.createMenubarForScreen(screen: screen)
+        }
+
+        // -----CREATE MENUBAR------
     }
 
     override func awakeFromNib() {
