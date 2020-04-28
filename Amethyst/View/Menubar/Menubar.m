@@ -19,7 +19,7 @@
                                 defer:YES];
     
     if (self) {
-        self.level = NSFloatingWindowLevel;
+        self.level = NSDockWindowLevel;
         [self setBackgroundColor:[NSColor colorWithCGColor:CGColorCreateGenericRGB(1, 1, 1, 0.5)]];
         self.opaque = NO;
         self.restorable = NO;
@@ -37,5 +37,10 @@
 
 + (instancetype)forScreen:(NSScreen *)screen {
     return [[Menubar alloc] initForScreen:screen];
+}
+
+// Fix elements not responding correct to keyboard events
+- (BOOL)canBecomeKeyWindow {
+    return YES;
 }
 @end

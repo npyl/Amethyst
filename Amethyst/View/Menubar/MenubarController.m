@@ -8,6 +8,7 @@
 
 #import "MenubarController.h"
 #import "Button.h"
+#import "TextField.h"
 #import "Common.h"
 
 @implementation MenubarController
@@ -24,24 +25,28 @@
     return [[super alloc] initWithWindow:menubar];
 }
 
-// TODO: Patch -push to work for any kind of menubar objects and introduce the text view
-// TODO: make amethyst take into account the size of the menubar (=> new windows need to stop overlapping with the menubar)
-- (void)push {
-    /* Create button */
-    MacButton *button = [[MacButton alloc] init];
-    
+- (void)push:(NSView *)view {
     /* Set its position in menubar */
-    NSRect frame = button.frame;
+    NSRect frame = view.frame;
     frame.origin.x = _offset;
     
     /* Set button properties */
-    [button setFrame:frame];
-    [button setAction:@selector(dostuff:)];
+    [view setFrame:frame];
     
     /* Position next to last button */
-    [[[self window] contentView] addSubview:button];
+    [[[self window] contentView] addSubview:view];
     
     /* Update offset */
     _offset += mac_button_len;
+}
+
+// TODO: Patch -push to work for any kind of menubar objects and introduce the text view
+// TODO: make amethyst take into account the size of the menubar (=> new windows need to stop overlapping with the menubar)
+- (void)pushButton {
+    /* Create button */
+    MacButton *button = [[MacButton alloc] init];
+    [button setAction:@selector(dostuff:)];
+    
+    [self push:button];
 }
 @end

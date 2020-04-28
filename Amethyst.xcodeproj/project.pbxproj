@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091631E424588E04003A3E27 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 091631E324588E04003A3E27 /* TextField.m */; };
 		09FEC35A2457A78F00E1CECB /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FEC3522457A78E00E1CECB /* Button.m */; };
 		09FEC35B2457A78F00E1CECB /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FEC3552457A78E00E1CECB /* Common.m */; };
 		09FEC35C2457A78F00E1CECB /* Menubar.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FEC3562457A78E00E1CECB /* Menubar.m */; };
@@ -123,6 +124,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		091631E324588E04003A3E27 /* TextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
+		091631E524588E38003A3E27 /* TextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		09FEC3522457A78E00E1CECB /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
 		09FEC3532457A78E00E1CECB /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		09FEC3542457A78E00E1CECB /* Menubar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menubar.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				09FEC3562457A78E00E1CECB /* Menubar.m */,
 				09FEC3582457A78F00E1CECB /* MenubarController.h */,
 				09FEC3592457A78F00E1CECB /* MenubarController.m */,
+				091631E524588E38003A3E27 /* TextField.h */,
+				091631E324588E04003A3E27 /* TextField.m */,
 			);
 			path = Menubar;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				ORGANIZATIONNAME = "Ian Ynda-Hummel";
 				TargetAttributes = {
 					402DB6DD1742E41A00D1C936 = {
+						DevelopmentTeam = CC63MSFH9N;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
@@ -802,6 +808,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40AF71DD20BB401400F58EA9 /* FloatingPreferencesViewController.swift in Sources */,
+				091631E424588E04003A3E27 /* TextField.m in Sources */,
 				40A88003240C40BC005EE9C6 /* LayoutsPreferencesViewController.swift in Sources */,
 				4046EFD12238949900113067 /* Application.swift in Sources */,
 				4062AD331C1FA48C00DB612B /* ColumnLayout.swift in Sources */,
@@ -1030,7 +1037,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 88;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CC63MSFH9N;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1064,7 +1071,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 88;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 82P2XLB4UH;
+				DEVELOPMENT_TEAM = CC63MSFH9N;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -20,7 +20,8 @@
 
 + (instancetype)forMenubar:(Menubar *)menubar;
 
-- (void)push;   /* push a button */
+- (void)push:(NSView *)view;
+- (void)pushButton;
 @end
 
 #endif /* MenubarController_h */
