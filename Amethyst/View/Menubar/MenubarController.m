@@ -15,12 +15,17 @@
     self = [super initWithWindow:window];
     if (self) {
         _offset = 0;
+
+        // TODO: Register to listen for specific keys e.g. cmd+r: run (then this will use spotlight on the background for search & suggestions)
     }
     return self;
 }
 + (instancetype)forMenubar:(Menubar *)menubar {
     return [[super alloc] initWithWindow:menubar];
 }
+
+// TODO: Patch -push to work for any kind of menubar objects and introduce the text view
+// TODO: make amethyst take into account the size of the menubar (=> new windows need to stop overlapping with the menubar)
 - (void)push {
     /* Create button */
     MacButton *button = [[MacButton alloc] init];
