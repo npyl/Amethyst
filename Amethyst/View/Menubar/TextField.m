@@ -20,12 +20,20 @@
         const NSRect text_field_frame = NSMakeRect(0, 0, mac_button_len, menubar_height);
 
         [self setFrame:text_field_frame];
-        
-        [self setStringValue:@"HELLO!"];
 
-        [self setFocusRingType:NSFocusRingTypeNone];
-//        [[self window] setContentViewController:[[NSViewController alloc] init]];
+        self.focusRingType = NSFocusRingTypeNone;   // show no ring
+        self.importsGraphics = NO;                  // can't drag-drop images
+        self.delegate = self;
     }
     return self;
+}
+
+// TODO: make amethyst take into account the size of the menubar (=> new windows need to stop overlapping with the menubar)
+
+- (BOOL)textShouldBeginEditing:(NSText *)textObject {
+    if ([textObject.string isEqualToString:@"__SELECT_ME_MAGIC@npyl"])
+        return NO;
+    else
+        return YES;
 }
 @end

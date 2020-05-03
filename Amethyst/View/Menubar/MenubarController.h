@@ -14,14 +14,21 @@
 
 #import "Menubar.h"
 
+#import "TextField.h"
+
 @interface MenubarController : NSWindowController {
     CGFloat _offset;    /* next-button vertical offset */
 }
+
+@property (nonatomic, setter=setRunAppTextField:) TextField *runAppTextField;
 
 + (instancetype)forMenubar:(Menubar *)menubar;
 
 - (void)push:(NSView *)view;
 - (void)pushButton;
+- (void)pushRunAppTextField;
+
+- (void)selectRunAppTextField;
 @end
 
 #endif /* MenubarController_h */

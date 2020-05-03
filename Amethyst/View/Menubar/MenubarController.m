@@ -8,7 +8,6 @@
 
 #import "MenubarController.h"
 #import "Button.h"
-#import "TextField.h"
 #import "Common.h"
 
 @implementation MenubarController
@@ -35,15 +34,29 @@
     [[[self window] contentView] addSubview:view];
     
     /* Update offset */
-    _offset += mac_button_len;
+    _offset += frame.size.width;
 }
 
-// TODO: make amethyst take into account the size of the menubar (=> new windows need to stop overlapping with the menubar)
 - (void)pushButton {
     /* Create button */
-    MacButton *button = [[MacButton alloc] init];
-    [button setAction:@selector(dostuff:)];
-    
-    [self push:button];
+    [self push:[[MacButton alloc] init]];
 }
+
+- (void)setRunAppTextField:(TextField *)runAppTextField {
+    /* cannot add 2 runAppTextFields */
+    if (_runAppTextField)
+        return;
+    
+    _runAppTextField = runAppTextField;
+}
+
+- (void)pushRunAppTextField {
+    [self setRunAppTextField:[[TextField alloc] init]];
+    [self push:_runAppTextField];
+}
+
+- (void)selectRunAppTextField {
+    _runAppTextField.stringValue = @"__SELECT_ME_MAGIC@npyl";
+}
+
 @end

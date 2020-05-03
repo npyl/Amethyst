@@ -35,13 +35,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         DispatchQueue.main.async {
 
             // create new menubar
-            let menubar = Menubar.forScreen(screen)
+            let menubar = Menubar.sharedMenubar(for: screen)
 
             // create menubar controller
-            let windowController = MenubarController.forMenubar(menubar)
+            let menubarController = MenubarController.forMenubar(menubar)
+
+            // add a run textfield
+            let anotherTextField = TextField()
+            let appMenu = MacButton()
+
+            menubarController?.push(appMenu)
+            menubarController?.pushRunAppTextField()
+            menubarController?.push(anotherTextField)
 
             // make it show up
-            windowController?.showWindow(nil)
+            menubarController?.showWindow(nil)
         }
     }
 
@@ -85,6 +93,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for screen in NSScreen.screens {
             self.createMenubarForScreen(screen: screen)
         }
+
+//        self.createMenubarForScreen(screen: NSScreen.main!)
 
         // -----CREATE MENUBAR------
     }

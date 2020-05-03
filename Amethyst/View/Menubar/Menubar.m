@@ -19,15 +19,10 @@
                                 defer:YES];
     
     if (self) {
-        self.level = NSDockWindowLevel;
-        [self setBackgroundColor:[NSColor colorWithCGColor:CGColorCreateGenericRGB(1, 1, 1, 0.5)]];
+        self.level = NSModalPanelWindowLevel;
+        self.backgroundColor = [NSColor colorWithCGColor:CGColorCreateGenericRGB(1, 1, 1, 0.5)];
         self.opaque = NO;
         self.restorable = NO;
-        
-        /* Create content view */
-        //// Not yet needed
-        //NSView *view = [[NSView alloc] initWithFrame:menubarFrame];
-        //[window setContentView:view];
         
         last_good_offset += screenFrame.size.width;
     }
@@ -39,8 +34,36 @@
     return [[Menubar alloc] initForScreen:screen];
 }
 
-// Fix elements not responding correct to keyboard events
++ (instancetype)sharedMenubarForScreen:(NSScreen *)screen {
+    static NSMutableArray<Menubar *> *_menubars = nil;
+    Menubar *result = nil;
+
+    if (!_menubars) {
+        /* initialise array */
+        _menubars = [NSMutableArray array];
+    
+        /* create new Menubar object */
+        result = [Menubar forScreen:screen];
+        
+        /* and add it */
+        [_menubars addObject:result];
+    }
+    else {
+        /* search menubar with particular screen in _menubars */
+        for (Menubar *menubar in _menubars)
+            if (menubar.screen == screen)
+                result = menubar;
+    }
+    
+    return result;
+}
+
+// Fixes elements not responding correct to keyboard events
 - (BOOL)canBecomeKeyWindow {
     return YES;
+}
+
+- (void)awakeFromNib {
+    self.level = NSDockWindowLevel;
 }
 @end

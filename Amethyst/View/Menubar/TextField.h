@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TextField : NSTextField
+@interface TextField : NSTextField<NSTextFieldDelegate>
 @end
 
 NS_ASSUME_NONNULL_END

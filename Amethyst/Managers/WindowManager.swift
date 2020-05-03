@@ -75,7 +75,12 @@ final class WindowManager<Application: ApplicationType>: NSObject, Codable {
     }
 
     func focusRunTextField() {
-        NSLog("MADE IT!")
+        let mainMenubar = Menubar.sharedMenubar(for: NSScreen.main)
+
+        let menubarController: MenubarController = mainMenubar?.windowController as! MenubarController
+
+        menubarController.selectRunAppTextField()
+
         // TODO: use spotlight on the background for search & suggestions
     }
 

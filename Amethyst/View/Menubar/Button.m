@@ -21,6 +21,8 @@
         const NSRect button_frame = NSMakeRect(0, 0, mac_button_len, menubar_height);
         
         [self setFrame:button_frame];
+        
+        [self setFocusRingType:NSFocusRingTypeNone];
     }
     return self;
 }
